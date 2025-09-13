@@ -1,0 +1,11 @@
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\backups
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\folders+files_listing.txt
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\inputs
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\interm_outputs
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\logs
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\outputs
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\reports
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\results
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\scripts
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\inputs\processed_inputsls
+C:\Users\Lenovo\PROJECTS\trailer_wifi_tuning\outputs\processed_interm_outputs
