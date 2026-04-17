@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CPE710 Research and Design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;line-height:1.45;margin:0;background:#f5f7fb;color:#17202a}
+    header{background:#0f172a;color:#fff;padding:22px 30px}
+    main{max-width:1260px;margin:auto;padding:24px}
+    nav,section{background:#fff;border:1px solid #d0d7e2;border-radius:12px;padding:18px;margin:0 0 18px 0}
+    nav a{display:inline-block;margin:4px 12px 4px 0;color:#0b57d0;text-decoration:none;font-weight:600}
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid #d0d7e2;padding:10px;text-align:left;vertical-align:top}
+    th{background:#eef4ff}
+    pre{background:#f3f4f6;padding:12px;border-radius:8px;overflow:auto}
+  </style>
+</head>
+<body>
+<header>
+  <h1>CPE710 Research and Design</h1>
+  <div>Integrated subsystem record for the TP-Link CPE710 within the trailer Wi-Fi and networking system.</div>
+</header>
+<main>
+  <nav>
+    <a href="trailer_wifi_network_system.html">System Home</a>
+    <a href="trailer_wifi_backlog_and_status.html">Backlog + Status</a>
+  </nav>
+  <section>
+    <h2>Validated understanding</h2>
+    <table>
+      <tr><th>Topic</th><th>Earlier belief / older guidance</th><th>Current state</th><th>Engineering interpretation</th></tr>
+      <tr><td>Primary management path</td><td>PharOS web UI and Pharos Control only</td><td>PharOS/Pharos remains central to configuration and monitoring, but current TP-Link CPE710 materials in some regions also list SSH server and SNMP v2c.</td><td>Design should preserve web/UI-centric operation while adding conditional discovery of optional management surfaces.</td></tr>
+      <tr><td>CLI / shell</td><td>No SSH, no Telnet, no shell</td><td>Older guidance is no longer fully reliable because SSH is now advertised in some current specs, but that still does not prove root shell or broad CLI control.</td><td>Assume management-level access only until verified on-device.</td></tr>
+      <tr><td>SNMP</td><td>Not supported</td><td>Current specs in some regions advertise an SNMP agent (v2c).</td><td>Treat SNMP as optional and firmware/region dependent until verified on the target unit.</td></tr>
+      <tr><td>Advanced settings</td><td>Mostly surfaced via left-nav UI pages, not true hidden console access</td><td>Still effectively true based on the research direction in this thread.</td><td>Map UI pages and diagnostics explicitly instead of assuming undocumented backdoor configuration paths.</td></tr>
+      <tr><td>Config export</td><td>May reveal inspectable parameters</td><td>Still a valid analysis path, but file structure must be inspected before parser assumptions are locked.</td><td>Build parser support around observed format, not guessed format.</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Safe design position</h2>
+    <table>
+      <tr><th>Design rule</th><th>Reason</th></tr>
+      <tr><td>Default all utility actions to read-only.</td><td>Prevents configuration drift and accidental link loss during discovery.</td></tr>
+      <tr><td>Separate discovery from change execution.</td><td>Allows safer architecture and clearer validation boundaries.</td></tr>
+      <tr><td>Detect capabilities from the device and firmware, not from assumption.</td><td>Documentation has changed over time and may vary by region/version.</td></tr>
+      <tr><td>Do not design around root shell access.</td><td>No current evidence justifies that assumption.</td></tr>
+      <tr><td>Keep the workbench aligned to the broader trailer Wi-Fi system.</td><td>The CPE is one interdependent subsystem, not a disconnected standalone product effort.</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Target utility architecture</h2>
+    <table>
+      <tr><th>Layer</th><th>Purpose</th><th>Notes</th></tr>
+      <tr><td>Discovery layer</td><td>Identify reachable device, firmware family, management ports, and export file characteristics.</td><td>Read-only.</td></tr>
+      <tr><td>Adapter layer</td><td>Handle web-derived workflows, export parsing, optional SSH probing, and optional SNMP probing.</td><td>Capability gated.</td></tr>
+      <tr><td>Audit layer</td><td>Convert raw findings into risk, compatibility, and configuration guidance.</td><td>Structured findings with severity.</td></tr>
+      <tr><td>GUI layer</td><td>Provide multi-tab guided views, defaults, field help, warnings, and report/export actions.</td><td>Python-first; avoid Tkinter.</td></tr>
+      <tr><td>Report layer</td><td>Persist findings and status back into repo-compatible artifacts.</td><td>Supports drift control and future thread continuity.</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Planned GUI characteristics</h2>
+    <ul>
+      <li>Tabbed layout rather than a single long form.</li>
+      <li>Multi-column field grouping.</li>
+      <li>Combination of checkboxes, radio buttons, dropdowns, text inputs, and larger explanatory text panels.</li>
+      <li>Built-in coaching notes for purpose, impact, suggested defaults, and safe ranges.</li>
+      <li>Clear distinction between observed values, suggested values, and user-entered override values.</li>
+      <li>Report/export actions to persist findings without requiring fragile manual note-taking.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Build readiness</h2>
+    <table>
+      <tr><th>Item</th><th>Status</th></tr>
+      <tr><td>Research stabilization</td><td>Good enough to begin code.</td></tr>
+      <tr><td>Tooling direction</td><td>Python-first, non-Tkinter, sync-friendly to X1 laptop.</td></tr>
+      <tr><td>Code starting point</td><td>Read-only discovery and config audit.</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>
