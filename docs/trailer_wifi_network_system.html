@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Trailer Wi-Fi and Networking System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;line-height:1.45;margin:0;background:#f5f7fb;color:#17202a}
+    header{background:#0f172a;color:#fff;padding:22px 30px}
+    main{max-width:1260px;margin:auto;padding:24px}
+    nav,section{background:#fff;border:1px solid #d0d7e2;border-radius:12px;padding:18px;margin:0 0 18px 0}
+    nav a{display:inline-block;margin:4px 12px 4px 0;color:#0b57d0;text-decoration:none;font-weight:600}
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid #d0d7e2;padding:10px;text-align:left;vertical-align:top}
+    th{background:#eef4ff}
+    pre{background:#f3f4f6;padding:12px;border-radius:8px;overflow:auto}
+    .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#e8eefc}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Trailer Wi-Fi and Networking System</h1>
+  <div>System-level report for trailer Wi-Fi, networking, interdependent devices, and supporting tooling.</div>
+</header>
+<main>
+  <nav>
+    <a href="trailer_wifi_network_system.html">System Home</a>
+    <a href="cpe710_research_and_design.html">CPE710 Research + Design</a>
+    <a href="trailer_wifi_backlog_and_status.html">Backlog + Status</a>
+  </nav>
+  <section>
+    <h2>System framing</h2>
+    <table>
+      <tr><th>Area</th><th>Position</th><th>Reason</th></tr>
+      <tr><td>Project structure</td><td>Single integrated system record</td><td>The trailer Wi-Fi, networking, RF bridge/CPE behavior, gateway behavior, management tooling, and validation are interdependent and should not be split into disconnected mini-projects.</td></tr>
+      <tr><td>CPE710 role</td><td>Subsystem within trailer Wi-Fi stack</td><td>The CPE utility is part of the larger networking environment and must align with broader topology, management, diagnostics, and drift-control documentation.</td></tr>
+      <tr><td>Documentation model</td><td>System-level HTML docs under <code>docs/</code></td><td>Keeps one canonical reference model for architecture, research, design, status, and future implementation.</td></tr>
+      <tr><td>Implementation direction</td><td>Python-first utility set</td><td>Supports sync to your X1 laptop and allows a richer multi-tab GUI without relying on Tkinter.</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Current workstreams</h2>
+    <table>
+      <tr><th>Workstream</th><th>Status</th><th>Notes</th></tr>
+      <tr><td>System architecture</td><td><span class="tag">Seeded</span></td><td>High-level system framing established.</td></tr>
+      <tr><td>CPE710 research validation</td><td><span class="tag">Seeded</span></td><td>Research is being folded into the system record instead of a separate workspace.</td></tr>
+      <tr><td>Tooling architecture</td><td><span class="tag">Seeded</span></td><td>Read-only discovery and audit first; GUI second.</td></tr>
+      <tr><td>Code</td><td><span class="tag">Not started</span></td><td>Not ready until the integrated docs and scope are stabilized.</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Immediate next sequence</h2>
+    <table>
+      <tr><th>Step</th><th>Deliverable</th><th>Exit criteria</th></tr>
+      <tr><td>1</td><td>Integrated CPE710 research/design document</td><td>Current findings, contradictions over time, and safe engineering position documented inside the system report set.</td></tr>
+      <tr><td>2</td><td>System backlog/status page</td><td>Tracks scope, open issues, design decisions, and implementation readiness.</td></tr>
+      <tr><td>3</td><td>Python utility architecture finalization</td><td>Technology choice, GUI approach, adapters, and safety boundaries locked.</td></tr>
+      <tr><td>4</td><td>Code generation</td><td>Start with read-only discovery and config audit utility.</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>
