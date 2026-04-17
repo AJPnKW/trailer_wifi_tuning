@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CPE710 Management Workbench</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;line-height:1.45;margin:0;background:#f5f7fb;color:#17202a}
+    header{background:#0f172a;color:#fff;padding:22px 30px}
+    main{max-width:1240px;margin:auto;padding:24px}
+    nav,section{background:#fff;border:1px solid #d0d7e2;border-radius:12px;padding:18px;margin:0 0 18px 0}
+    nav a{display:inline-block;margin:4px 12px 4px 0;color:#0b57d0;text-decoration:none;font-weight:600}
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid #d0d7e2;padding:10px;text-align:left;vertical-align:top}
+    th{background:#eef4ff}
+    pre{background:#f3f4f6;padding:12px;border-radius:8px;overflow:auto}
+    .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#e8eefc}
+  </style>
+</head>
+<body>
+<header>
+  <h1>CPE710 Management Workbench</h1>
+  <div>Repository landing page for research, architecture, scope, drift-control, and implementation tracking.</div>
+</header>
+<main>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="research_validation.html">Research Validation</a>
+    <a href="architecture.html">Architecture</a>
+    <a href="design_scope.html">Design + Scope</a>
+    <a href="backlog_issues.html">Backlog + Issues</a>
+    <a href="test_release_status.html">Test + Release</a>
+    <a href="thread_archive_summary.html">Thread Archive Summary</a>
+  </nav>
+  <section>
+    <h2>Status</h2>
+    <table>
+      <tr><th>Area</th><th>Status</th><th>Notes</th></tr>
+      <tr><td>Research baseline</td><td><span class="tag">Seeded</span></td><td>Documented what older assumptions said, what current TP-Link documentation says, and what remains unverified.</td></tr>
+      <tr><td>Architecture</td><td><span class="tag">Seeded</span></td><td>Python-first GUI workbench with capability adapters and explicit safety boundaries.</td></tr>
+      <tr><td>Design + scope</td><td><span class="tag">Seeded</span></td><td>Tabbed, user-guided workbench defined. No shell/root assumptions.</td></tr>
+      <tr><td>Implementation code</td><td><span class="tag">Not started</span></td><td>Next build target is read-only discovery + config audit.</td></tr>
+      <tr><td>Thread archive</td><td><span class="tag">Seeded</span></td><td>Thread summary added so this repo becomes the durable memory for this work.</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Immediate Build Sequence</h2>
+    <table>
+      <tr><th>Phase</th><th>Deliverable</th><th>Exit criteria</th></tr>
+      <tr><td>1</td><td>Read-only discovery utility</td><td>Identify reachable device, firmware family, management reachability, exported config structure, and optional SSH/SNMP exposure without changing device state.</td></tr>
+      <tr><td>2</td><td>Config audit utility</td><td>Parse supported config exports and produce structured findings with severity and field guidance.</td></tr>
+      <tr><td>3</td><td>GUI workbench prototype</td><td>Tabbed layout, multi-column forms, defaults, hints, warnings, change previews, and report/export actions.</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Workspace Layout</h2>
+    <pre>cpe710_management_workbench/
+  docs/
+    index.html
+    research_validation.html
+    architecture.html
+    design_scope.html
+    backlog_issues.html
+    test_release_status.html
+    thread_archive_summary.html
+  data/
+    issue_register.csv
+    decision_register.csv
+  tools/
+    audit_cpe710_config.py
+    README.html</pre>
+  </section>
+</main>
+</body>
+</html>
