@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Trailer Wi-Fi Backlog and Status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;line-height:1.45;margin:0;background:#f5f7fb;color:#17202a}
+    header{background:#0f172a;color:#fff;padding:22px 30px}
+    main{max-width:1260px;margin:auto;padding:24px}
+    nav,section{background:#fff;border:1px solid #d0d7e2;border-radius:12px;padding:18px;margin:0 0 18px 0}
+    nav a{display:inline-block;margin:4px 12px 4px 0;color:#0b57d0;text-decoration:none;font-weight:600}
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid #d0d7e2;padding:10px;text-align:left;vertical-align:top}
+    th{background:#eef4ff}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Trailer Wi-Fi Backlog and Status</h1>
+  <div>Integrated backlog, decisions, readiness, and implementation sequence for trailer Wi-Fi and related tooling.</div>
+</header>
+<main>
+  <nav>
+    <a href="trailer_wifi_network_system.html">System Home</a>
+    <a href="cpe710_research_and_design.html">CPE710 Research + Design</a>
+  </nav>
+  <section>
+    <h2>Current decisions</h2>
+    <table>
+      <tr><th>Decision</th><th>Status</th><th>Notes</th></tr>
+      <tr><td>Keep CPE710 work inside the trailer Wi-Fi system record</td><td>Accepted</td><td>No separate mini-project/report track.</td></tr>
+      <tr><td>Use Python-first utility stack</td><td>Accepted</td><td>Better fit for X1 sync and richer UI options.</td></tr>
+      <tr><td>Avoid Tkinter</td><td>Accepted</td><td>Need a more modern tabbed, multi-column GUI path.</td></tr>
+      <tr><td>Start with read-only discovery</td><td>Accepted</td><td>Protects live device state and reduces regression risk.</td></tr>
+      <tr><td>Treat SSH/SNMP as conditional capabilities</td><td>Accepted</td><td>Advertised in some current materials, but must be detected, not assumed.</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Backlog</h2>
+    <table>
+      <tr><th>ID</th><th>Item</th><th>Priority</th><th>Status</th><th>Exit criteria</th></tr>
+      <tr><td>TW-001</td><td>Stabilize integrated docs set</td><td>High</td><td>In progress</td><td>System home, CPE710 design, backlog/status, and supporting references present and linked.</td></tr>
+      <tr><td>TW-002</td><td>Define Python GUI technology choice</td><td>High</td><td>Open</td><td>One non-Tkinter framework selected and documented.</td></tr>
+      <tr><td>TW-003</td><td>Build read-only discovery utility</td><td>High</td><td>Open</td><td>Detect target reachability, ports, export type, and optional management surfaces.</td></tr>
+      <tr><td>TW-004</td><td>Build config audit parser</td><td>High</td><td>Open</td><td>Support observed config export structure and emit findings by severity.</td></tr>
+      <tr><td>TW-005</td><td>Build GUI prototype</td><td>Medium</td><td>Open</td><td>Tabbed workflow with field guidance, defaults, warnings, and report actions.</td></tr>
+      <tr><td>TW-006</td><td>Integrate drift-control artifacts</td><td>Medium</td><td>Open</td><td>Decision register, issue register, and known-bad-pattern tracking in repo.</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Implementation readiness</h2>
+    <table>
+      <tr><th>Area</th><th>Readiness</th><th>Comment</th></tr>
+      <tr><td>Research baseline</td><td>Ready</td><td>Good enough to start code without overcommitting to unsupported assumptions.</td></tr>
+      <tr><td>System framing</td><td>Ready</td><td>Integrated model established.</td></tr>
+      <tr><td>UI design direction</td><td>Mostly ready</td><td>Need framework selection lock before code scaffold.</td></tr>
+      <tr><td>Code generation</td><td>Nearly ready</td><td>One more architecture choice: GUI framework.</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>
